@@ -1,0 +1,31 @@
+{% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<html>
+<head>
+	<title>{%block title%}{% endblock%}</title>
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/main2.css">
+	{% block css %}{% endblock %}
+	
+	<script src="{{ STATIC_PREFIX }}js/jquery-1.5.1.min.js" type="text/javascript"
+    charset="utf-8"></script>
+    <script src="{{ STATIC_PREFIX }}js/jquery-ui-1.8.9.custom.min.js" type="text/javascript"
+    charset="utf-8"></script>
+	{% block js %}{% endblock%}
+	
+</head>
+<body>
+	<div class="container">
+		<div id= "top">Blog V2</div>
+		<hr />
+		<div id= "navi">{% block navi %}{% endblock %}</div>
+		<br /><br /><br />
+		<hr />
+		<div id= "content">{% block content %}{% endblock %}</div>
+		<div id= "footer">{% block footer %}{% endblock %}</div>
+	</div>
+</body>
+</html>

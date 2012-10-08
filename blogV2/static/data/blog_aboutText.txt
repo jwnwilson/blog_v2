@@ -1,0 +1,11 @@
+<p>BlogV2 is a second version of blog created by Noel Wilson, so far it supports:</p>
+<ul>
+<li>Multiple users</li>
+<li>User blogs</li>
+<li>New, edit, delete functionallity</li>
+</ul>
+<p>To be implemented:</p>
+<ul>
+<li>Forum</li>
+<li>Web game</li>
+</ul>

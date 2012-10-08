@@ -1,0 +1,8 @@
+<p>Welcome to BlogV2 the second version of blog created by Noel Wilson.</p>
+<br/>
+<p>Feel free to create a profile and create / edit your own personal blogs, more
+features are to added including a forum and some simple web games.</p>
+<br/>
+<p>Any comments or complaints to: jwnwilson@hotmail.co.uk</p>
+
+

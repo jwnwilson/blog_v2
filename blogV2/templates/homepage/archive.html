@@ -1,0 +1,20 @@
+{% extends "homepage/index.html" %}
+
+{% block title %}
+	Archive
+{% endblock %}	
+
+{% block content %}
+	Archive
+	
+	<p>In Archive: {{ in_archive_count }}</p>
+	<div>
+		{% for m in per_month_count %}
+			<div>
+				{{ m.date|date:"Y/M"}} : {{ m.count }}				
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}	
+
+

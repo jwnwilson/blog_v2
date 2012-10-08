@@ -1,0 +1,38 @@
+{% extends "index.html" %}
+
+{% block title %}
+Archive
+{% endblock %}	
+
+{% block content %}
+	<h2>Archive</h2>
+	<p>In Archive: {{ in_archive_count }}</p>
+	<h3> Posts for Date:{{month}} {{year}}</h3>
+	<hr/>
+	<div>
+		{% for m in per_month_count %}
+			<div>
+				<a href={{ m.date|date:'M'}}>{{ m.date|date:"Y/M"}} : {{ m.count }} Posts</a>			
+			</div>
+			<br />
+		{% endfor %}
+	</div>
+	<div class="">
+		{% for e in page %}
+			<h3> {{e.user.user}}: </h3>
+			<div>{{e.title}} - {{e.created}} </div>
+				<hr />
+				<div>{{e.text}}</div>
+				<br /> <br />
+		{% endfor %}
+		{% if page.has_previous %}
+			<a href="?page={{ page.previous_page_number }}">prev</a>
+		{% endif %}
+		| {{ page.number }} |
+		{% if page.has_next %}
+			<a href="?page={{ page.next_page_number }}">next</a>
+		{% endif %}
+	</div>
+{% endblock %}	
+
+

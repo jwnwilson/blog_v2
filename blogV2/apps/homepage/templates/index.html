@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ STATIC_URL }}css/index2.css">
+{% endblock %}
+
+{% block js %}
+ <script src="{{ STATIC_PREFIX }}js/blogV2Index.js" type="text/javascript"
+    charset="utf-8"></script>
+{% endblock %}
+
+{% block title %}
+ Index Page
+{% endblock %}
+
+{% block navi %}
+	<p>
+	<div class="naviButton">
+		<a href="{% url homepage_index %}">home</a> - 
+	</div>
+	<pre style="float:left;"> - </pre>
+	<div class="naviButton">
+		<a href="{% url homepage_archive %}">archive</a> 
+	</div>
+	<pre style="float:left;"> - </pre>
+	<div class="naviButton">
+		<a href="{% url homepage_about %}">about</a>
+	</div>
+	<p style="float:left;padding-right:200px;"/>
+	{% if user.is_authenticated %}
+		<div class="naviButton">
+			<a class= "login_anchor" href="{% url accounts_myBlog %}">My Blog</a>  
+		</div>
+		<pre style="float:left;"> - </pre>
+		<div class="naviButton">
+			<a class= "login_anchor" href="{% url accounts_profile %}">profile</a> 
+		</div>
+		<pre style="float:left;"> - </pre>
+		<div class="naviButton">
+			<a class= "login_anchor" href="{% url accounts_logout %}">logout</a>
+		</div>
+	{% else %}
+		<div class="naviButton">
+			<a class= "login_anchor" href="{% url accounts_login %}">login</a>  
+		</div>
+		<pre style="float:left;"> - </pre>
+		<div class="naviButton">
+			<a class= "login_anchor" href="{% url accounts_register %}">register</a>
+		</div>
+	{% endif %}
+	</p>
+{% endblock %}
+
+{% block content %}
+	<h1>Welcome to BlogV2</h1>
+	<img src="{{STATIC_PREFIX}}img/blog.jpg" style="float:right;" />
+	<br />
+	{{introText|safe}}
+	<div class="blog_recentPosts" style = "position:relative;top:100px;">
+		<h1>Most recent posts</h1>
+		<h3>Entries:</h3>
+		{% for e in page %}
+			<h3> {{e.user.user}}: </h3>
+			<div>{{e.title}} - {{e.created}} </div>
+				<hr />
+				<div>{{e.text}}</div>
+				<br /> <br />
+		{% endfor %}
+		{% if page.has_previous %}
+			<a href="?page={{ page.previous_page_number }}">prev</a>
+		{% endif %}
+		| {{ page.number }} |
+		{% if page.has_next %}
+			<a href="?page={{ page.next_page_number }}">next</a>
+		{% endif %}
+	</div>
+{% endblock %}
+
+{% block footer %}
+	<div class="blog_footer" style = "position:relative;top:200px;">
+		<hr />
+		<p>2012 - blogV2</p>
+		<hr />
+		<br />
+	</div>
+	
+{% endblock %}
+

@@ -1,0 +1,13 @@
+<html>
+<head>
+	<title>My Blog Index</title>
+</head>
+<body>
+	<h3>Entries:</h3>
+	{% for e in entries %}
+		<div>{{e.title}} - {{e.created}} </div>
+			<div>{{e.text}}</div>
+		<br/>
+	{% endfor %}
+</body>
+</html>
